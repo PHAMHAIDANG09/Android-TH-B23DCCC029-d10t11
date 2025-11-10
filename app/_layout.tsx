@@ -1,24 +1,40 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+// app/(tabs)/_layout.tsx
 import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
+import React from 'react';
 
-import { useColorScheme } from '@/hooks/use-color-scheme';
-
-export const unstable_settings = {
-  anchor: '(tabs)',
-};
-
-export default function RootLayout() {
-  const colorScheme = useColorScheme();
-
+export default function AppLayout() {
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <Stack>
+      <Stack.Screen
+        name="index"
+        options={{
+          headerTitle: 'Trang chủ - Chọn bài tập',
+        }}
+      />
+      <Stack.Screen
+        name="bai1"
+        options={{
+          headerTitle: 'Bài 1: Danh thiếp cá nhân',
+        }}
+      />
+       <Stack.Screen
+        name="bai2"
+        options={{
+          headerTitle: 'Bài 2: Tính điểm trung bình',
+        }}
+      />
+       <Stack.Screen
+        name="bai3"
+        options={{
+          headerTitle: 'Bài 3: Đổi màu nền',
+        }}
+      />
+       <Stack.Screen
+        name="bai4"
+        options={{
+          headerTitle: 'Bài 4: Danh sách công việc',
+        }}
+      />
+    </Stack>
   );
 }
