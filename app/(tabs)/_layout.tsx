@@ -1,24 +1,40 @@
-
-import { TabBarIcon } from '@/components/TabBarIcon';
-import { Tabs } from 'expo-router';
+// app/(tabs)/_layout.tsx
+import { Stack } from 'expo-router';
 import React from 'react';
 
-export default function TabLayout() {
+export default function AppLayout() {
   return (
-    <Tabs
-      screenOptions={{
-        headerShown: false, // Ẩn header mặc định
-      }}>
-      <Tabs.Screen
+    <Stack>
+      <Stack.Screen
         name="index"
         options={{
-          title: 'Thời tiết',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'cloud' : 'cloud-outline'} color={color} />
-          ),
+          headerTitle: 'Trang chủ - Chọn bài tập',
         }}
       />
-      {/* Bạn có thể thêm các màn hình khác ở đây nếu muốn */}
-    </Tabs>
+      <Stack.Screen
+        name="bai1"
+        options={{
+          headerTitle: 'Bài 1: Danh thiếp cá nhân',
+        }}
+      />
+       <Stack.Screen
+        name="bai2"
+        options={{
+          headerTitle: 'Bài 2: Tính điểm trung bình',
+        }}
+      />
+       <Stack.Screen
+        name="bai3"
+        options={{
+          headerTitle: 'Bài 3: Đổi màu nền',
+        }}
+      />
+       <Stack.Screen
+        name="bai4"
+        options={{
+          headerTitle: 'Bài 4: Danh sách công việc',
+        }}
+      />
+    </Stack>
   );
 }

@@ -1,40 +1,13 @@
-// app/(tabs)/_layout.tsx
 import { Stack } from 'expo-router';
-import React from 'react';
 
-export default function AppLayout() {
+export default function RootLayout() {
   return (
     <Stack>
-      <Stack.Screen
-        name="index"
-        options={{
-          headerTitle: 'Trang chủ - Chọn bài tập',
-        }}
-      />
-      <Stack.Screen
-        name="bai1"
-        options={{
-          headerTitle: 'Bài 1: Danh thiếp cá nhân',
-        }}
-      />
-       <Stack.Screen
-        name="bai2"
-        options={{
-          headerTitle: 'Bài 2: Tính điểm trung bình',
-        }}
-      />
-       <Stack.Screen
-        name="bai3"
-        options={{
-          headerTitle: 'Bài 3: Đổi màu nền',
-        }}
-      />
-       <Stack.Screen
-        name="bai4"
-        options={{
-          headerTitle: 'Bài 4: Danh sách công việc',
-        }}
-      />
+      {/* Dòng này nói với app rằng có một nhóm màn hình (tabs) */}
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      
+      {/* Dòng này cho màn hình modal (nếu có) */}
+      <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
     </Stack>
   );
 }
